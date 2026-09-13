@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bank Fraud Detection</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page">
+    <header class="page-header">
+      <h1>Bank Fraud Detection</h1>
+      <p class="subtitle">Enter a transaction's details to check its fraud risk in real time.</p>
+    </header>
+
+    <section class="card">
+      <form id="transaction-form">
+        <div class="form-grid">
+          <div class="field">
+            <label for="amount">Amount ($)</label>
+            <input type="number" id="amount" name="amount" step="0.01" min="0.01" value="4500.00" required />
+          </div>
+
+          <div class="field">
+            <label for="timestamp">Timestamp</label>
+            <input type="datetime-local" id="timestamp" name="timestamp" required />
+          </div>
+
+          <div class="field">
+            <label for="transaction_type">Transaction Type</label>
+            <select id="transaction_type" name="transaction_type" required>
+              <option value="POS">POS</option>
+              <option value="ONLINE">ONLINE</option>
+              <option value="ATM_WITHDRAWAL">ATM_WITHDRAWAL</option>
+              <option value="WIRE_TRANSFER" selected>WIRE_TRANSFER</option>
+              <option value="BILL_PAYMENT">BILL_PAYMENT</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="merchant_category">Merchant Category</label>
+            <select id="merchant_category" name="merchant_category" required>
+              <option value="grocery">grocery</option>
+              <option value="restaurant">restaurant</option>
+              <option value="fuel">fuel</option>
+              <option value="utilities">utilities</option>
+              <option value="online_retail">online_retail</option>
+              <option value="electronics">electronics</option>
+              <option value="travel">travel</option>
+              <option value="jewelry">jewelry</option>
+              <option value="gambling">gambling</option>
+              <option value="cash_advance" selected>cash_advance</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="country">Country</label>
+            <select id="country" name="country" required>
+              <option value="US">US</option>
+              <option value="GB">GB</option>
+              <option value="IN">IN</option>
+              <option value="DE">DE</option>
+              <option value="FR">FR</option>
+              <option value="CA">CA</option>
+              <option value="AU">AU</option>
+              <option value="BR">BR</option>
+              <option value="NG" selected>NG</option>
+              <option value="RU">RU</option>
+              <option value="CN">CN</option>
+              <option value="UA">UA</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="device_risk_score">Device Risk Score (0-1)</label>
+            <input type="number" id="device_risk_score" name="device_risk_score" step="0.01" min="0" max="1" value="0.82" required />
+          </div>
+
+          <div class="field">
+            <label for="ip_risk_score">IP Risk Score (0-1)</label>
+            <input type="number" id="ip_risk_score" name="ip_risk_score" step="0.01" min="0" max="1" value="0.77" required />
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <label class="api-url-field">
+            API base URL
+            <input type="text" id="api-url" value="http://127.0.0.1:8000" />
+          </label>
+          <button type="submit" id="submit-btn">Check Transaction</button>
+        </div>
+      </form>
+
+      <p id="error-message" class="error-message" hidden></p>
+    </section>
+
+    <section id="result-card" class="card result-card" hidden>
+      <div id="result-banner" class="result-banner">
+        <span id="result-icon" class="result-icon"></span>
+        <div>
+          <div id="result-label" class="result-label"></div>
+          <div id="result-probability" class="result-probability"></div>
+        </div>
+      </div>
+
+      <div class="result-detail">
+        <span>Decision threshold used: <strong id="result-threshold"></strong></span>
+      </div>
+
+      <h2 class="features-heading">Top Contributing Factors</h2>
+      <ul id="features-list" class="features-list"></ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

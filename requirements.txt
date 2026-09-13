@@ -1,0 +1,33 @@
+# Core data science
+numpy==1.26.4
+pandas==2.2.2
+scipy==1.13.1
+scikit-learn==1.5.1
+
+# Imbalanced data handling (SMOTE)
+imbalanced-learn==0.12.3
+
+# Gradient boosting model
+xgboost==2.1.1
+
+# Hyperparameter tuning
+optuna==3.6.1
+
+# Explainability
+shap==0.46.0
+
+# Plotting (EDA)
+matplotlib==3.9.2
+seaborn==0.13.2
+
+# Backend API
+fastapi==0.112.0
+uvicorn[standard]==0.30.5
+pydantic==2.8.2
+python-multipart==0.0.9
+
+# Model persistence
+joblib==1.4.2
+
+# Misc
+requests==2.32.3
