@@ -1,5 +1,6 @@
 # Bank Fraud Detection using Machine Learning
 
+Video Link:https://drive.google.com/file/d/1SrIhFh_yuT3NiFRKTzWyMxARSlVpOwoA/view?usp=sharing
 An end-to-end fraud detection system: synthetic transaction data generation, EDA,
 an XGBoost model tuned with Optuna and explained with SHAP, a FastAPI backend, and
 a minimal HTML/CSS/JS frontend that calls it.
